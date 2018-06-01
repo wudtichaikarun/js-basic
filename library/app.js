@@ -1,3 +1,11 @@
-var ro = G$('wudtichai', 'karun', 'th');
+$('#login').click(function() {
+  var loginGrtr = G$('Wudtichai', 'Karun');
 
-ro.greet().setLang('en').greet(true).log();
+  $('#logindiv').hide();
+
+  loginGrtr
+    .setLang($('#lang').val())
+    .HTMLGreeting('#greeting', true)
+    .log();
+
+})
