@@ -204,8 +204,7 @@ console.group('%c - Build-in function constructor(not!! use)', 'color: green');
 console.groupEnd()
 
 /* -----------------------------------------------------
-*    BUILD-IN FUNCTION CONSTRUCTOR
-*      keyword 'new' alway have has type = object
+* Object.create and Pure Prototypal inheritance
 --------------------------------------------------------*/
 console.group('%c - Object.create and Pure Prototypal inheritance', 'color: green');
 
@@ -238,4 +237,51 @@ console.group('%c - Object.create and Pure Prototypal inheritance', 'color: gree
 
     console.groupEnd();
     
+console.groupEnd();
+
+/* -----------------------------------------------------
+* typeof(...)
+--------------------------------------------------------*/
+console.group('%c - typeof(...)', 'color: green');
+      var fn = function() {}
+      console.log('typeof function: ', typeof fn);
+
+      var num = 3;
+      console.log('var num = 3; typeof(num): ', typeof(num));
+
+      var str = 'Ro';
+      console.log('var str = "Ro"; typeof(str): ', typeof(str)); 
+
+      var obj = {};
+      console.log('var obj = {}; typeof(obj): ', typeof(obj));  
+
+      var arr = [];
+      console.warn('var arr = []; typeof(arr): ', typeof(arr));  // weird!
+      console.log('Object.prototype.toString.call(arr); ', Object.prototype.toString.call(arr));
+
+      function Person4(name) {
+        this.name = name
+      }
+
+      var ro4 = new Person4('Ro4');
+      console.log('typeof ro4: ', typeof ro4);
+      // because person4 is down prototype chain of ro4
+      console.log('ro4 instanceof Person4 : ', ro4 instanceof Person4);
+
+      console.log('typeof undefined: ', typeof undefined);
+      console.warn('This is bug => typeof null: ', typeof null);
+
+
+console.groupEnd();
+
+/* -----------------------------------------------------
+* 'use strict'
+--------------------------------------------------------*/
+console.group('%c - "use strict"', 'color: green');
+  (function logNerPerson() {
+    'use strict'
+
+    console.log('log(this) when use "use strict"', this);
+
+  }())
 console.groupEnd();
